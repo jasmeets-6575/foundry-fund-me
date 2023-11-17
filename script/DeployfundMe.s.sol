@@ -5,9 +5,11 @@ import {Script} from "forge-std/Script.sol";
 import {FundMe} from "../src/FundMe.sol";
 
 contract DeployfundMe is Script {
-    function run() external {
+    function run() external returns (FundMe){
         vm.startBroadcast();
-        new FundMe();
+        // Paste address is new FundMe(ADDRESS)
+        FundMe fundMe = new FundMe();
         vm.stopBroadcast();
+        return fundMe;
     }
 }
