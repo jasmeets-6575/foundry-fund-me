@@ -7,6 +7,7 @@ import {DeployfundMe} from "../script/DeployfundMe.s.sol";
 
 contract FundMeTest is Test {
     FundMe fundMe;
+    uint256 public constant SEND_VALUE = 0.1 ether; 
 
     function setUp() external {
         DeployfundMe deployFundMe = new DeployfundMe();
