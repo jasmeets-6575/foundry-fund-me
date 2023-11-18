@@ -6,8 +6,18 @@ import {Script} from "forge-std/Script.sol";
 
 contract HelperConfig {
 
+    NetworkConfig public activeNetworkConfig;
+
     struct NetworkConfig {
         address priceFeed; //ETH/USD price feed
+    }
+
+    constructor() {
+        if (block.chainid == 11155111) {
+            activeNetworkConfig = getSepoliaEthConfig();
+        } else {
+            activeNetworkConfig = getAnvilEthConfig();
+        }
     }
 
     function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
