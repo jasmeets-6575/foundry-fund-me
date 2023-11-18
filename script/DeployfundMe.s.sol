@@ -7,8 +7,7 @@ import {FundMe} from "../src/FundMe.sol";
 contract DeployfundMe is Script {
     function run() external returns (FundMe){
         vm.startBroadcast();
-        // Paste address is new FundMe(ADDRESS)
-        FundMe fundMe = new FundMe();
+        FundMe fundMe = new FundMe(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         vm.stopBroadcast();
         return fundMe;
     }
